@@ -82,27 +82,33 @@ function Carousal() {
   ];
 
   return (
-    <div className="bg-gray-50 py-20">
-      <div className="max-w-full mx-auto px-20">
-        <h2 className="text-5xl font-bold mb-12">NOW PLAYING</h2>
+    <div className="bg-gray-50 py-12 md:py-20">
+      <div className="max-w-full mx-auto px-4 md:px-20">
+        <h2 className="text-3xl md:text-5xl font-bold mb-8 md:mb-12">
+          NOW PLAYING
+        </h2>
 
         <div className="relative">
           <div
             ref={scrollRef}
-            className="flex gap-6 overflow-x-hidden scroll-smooth pb-8"
+            className="flex gap-4 md:gap-6 overflow-x-auto scroll-smooth pb-4 md:pb-8 scrollbar-hide"
           >
             {events.map((event, index) => (
               <div
                 key={index}
-                className={`${event.color} rounded-lg p-6 min-w-[300px] max-w-[300px] flex-shrink-0`}
+                className={`${event.color} rounded-lg p-4 md:p-6 min-w-[250px] md:min-w-[300px] max-w-[300px] flex-shrink-0`}
               >
                 <img
                   src={event.image}
                   alt={event.title}
-                  className="w-full h-48 object-cover rounded-lg mb-4"
+                  className="w-full h-40 md:h-48 object-cover rounded-lg mb-3 md:mb-4"
                 />
-                <h3 className="text-xl font-bold mb-2">{event.title}</h3>
-                <p className="text-sm text-gray-600 mb-2">{event.date}</p>
+                <h3 className="text-lg md:text-xl font-bold mb-1 md:mb-2">
+                  {event.title}
+                </h3>
+                <p className="text-xs md:text-sm text-gray-600 mb-1 md:mb-2">
+                  {event.date}
+                </p>
                 <p className="text-sm">{event.description}</p>
               </div>
             ))}
@@ -111,7 +117,7 @@ function Carousal() {
           {/* Left Scroll Button */}
           <button
             onClick={() => scroll("left")}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black/50 p-2 rounded-full text-white z-10"
+            className="hidden md:flex absolute left-0 top-1/2 transform -translate-y-1/2 bg-black/50 p-2 rounded-full text-white z-10"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
@@ -119,7 +125,7 @@ function Carousal() {
           {/* Right Scroll Button */}
           <button
             onClick={() => scroll("right")}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black/50 p-2 rounded-full text-white z-10"
+            className="hidden md:flex absolute right-0 top-1/2 transform -translate-y-1/2 bg-black/50 p-2 rounded-full text-white z-10"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
