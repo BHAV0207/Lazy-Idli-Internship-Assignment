@@ -1,6 +1,7 @@
 import BookingSection from "./components/BookingSection"
 import Cards from "./components/Cards"
 import Carousal from "./components/Carousal"
+import Footer from "./components/Footer"
 import Header from "./components/Header"
 import Hero from "./components/Hero"
 import NewsLetterSection from "./components/NewsLetterSection"
@@ -21,6 +22,7 @@ function App() {
       <BookingSection></BookingSection>
       <PlayItCool></PlayItCool>
       <NewsLetterSection></NewsLetterSection>
+      <Footer></Footer>
     </div>
   )
 }

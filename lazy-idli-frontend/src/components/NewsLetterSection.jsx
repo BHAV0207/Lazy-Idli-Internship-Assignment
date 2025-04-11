@@ -2,23 +2,23 @@ import { Facebook, Instagram, Linkedin, Send, Youtube } from "lucide-react";
 import React, { useState } from "react";
 
 function NewsLetterSection() {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   return (
     <div className="bg-black text-white py-20">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
         <div className="md:col-span-1">
           <h2 className="text-5xl font-bold mb-4">Never miss an update</h2>
           <p className="mb-6">Subscribe to our Newsletter</p>
-          <div className="flex gap-2">
+          <div className="flex items-center rounded-xl overflow-hidden bg-white max-w-md">
             <input
               type="email"
               placeholder="Enter Email ID"
-              className="bg-white/10 rounded px-4 py-2 flex-grow"
+              className="px-4 py-2 flex-grow text-black outline-none"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <button className="bg-blue-600 p-2 rounded">
-              <Send className="w-6 h-6" />
+            <button className=" p-2 h-full flex items-center justify-center">
+              <Send className="w-7 h-7 text-blue-600" />
             </button>
           </div>
         </div>
