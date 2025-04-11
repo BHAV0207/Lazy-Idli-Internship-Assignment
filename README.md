@@ -60,8 +60,7 @@ play-arena/
 
 ## 🌐 Live Demo
 
-> _Coming Soon..._ (You can host it via [Vercel](https://vercel.com/) or [Netlify](https://netlify.com/))
-
+(https://zingy-snickerdoodle-cae28c.netlify.app/)
 ---
 
 ## 🔧 Installation & Setup
