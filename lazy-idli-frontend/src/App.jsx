@@ -11,7 +11,6 @@ import PlayYourWay from "./components/PlayYourWay"
 
 function App() {
 
-
   return (
     <div className="min-h-screen bg-white">
       <Header></Header>

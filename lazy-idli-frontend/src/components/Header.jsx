@@ -1,10 +1,27 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
+import { DataContext } from "../Store/DataContext";
 
 function Header() {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isClickDropdownOpen, setIsClickDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const {setData , data} = useContext(DataContext)
+
+
+  useEffect(() => {
+    const playCategories = navItems["Play"];
+    const categoryCounts = Object.keys(playCategories).reduce((acc, category) => {
+      acc[category] = playCategories[category].length;
+      return acc;
+    }, {});
+  
+    // Set the data in the required format
+    setData(categoryCounts);
+  }, []);
+
+  console.log(data)
 
   const navItems = {
     Play: {
@@ -46,7 +63,7 @@ function Header() {
   };
 
   return (
-    <nav className="bg-black/90 text-white py-4 px-6 relative z-50">
+    <nav className="fixed top-0 left-0 w-full bg-black/90 text-white py-4 px-6 z-50 shadow-md backdrop-blur-md">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="text-2xl font-bold flex items-center gap-2">
@@ -63,7 +80,7 @@ function Header() {
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-6">
           {Object.keys(navItems).map((item) => (
-           <div key={item} className="relative group">
+            <div key={item} className="relative group">
               <button
                 onClick={() => {
                   if (activeDropdown === item && isClickDropdownOpen) {
@@ -103,18 +120,21 @@ function Header() {
                   )}
 
                   {item === "Play" ? (
-                    <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-h-[400px] overflow-y-auto pr-2">
                       {Object.entries(navItems[item]).map(
                         ([category, activities]) => (
-                          <div key={category}>
-                            <h3 className="text-blue-600 font-semibold text-base mb-2">
+                          <div
+                            key={category}
+                            className="bg-gray-50 hover:bg-gray-100 rounded-lg shadow-sm p-4 transition duration-200 border border-gray-200 min-w-[180px]"
+                          >
+                            <h3 className="text-blue-600 font-semibold text-sm uppercase mb-3 tracking-wide">
                               {category}
                             </h3>
-                            <ul className="space-y-1">
+                            <ul className="space-y-2 break-words">
                               {activities.map((activity) => (
                                 <li
                                   key={activity}
-                                  className="text-sm hover:text-blue-500 cursor-pointer transition"
+                                  className="text-gray-700 hover:text-blue-500 text-sm transition duration-200 cursor-pointer break-words"
                                 >
                                   {activity}
                                 </li>
@@ -129,7 +149,7 @@ function Header() {
                       {navItems[item].map((subItem) => (
                         <li
                           key={subItem}
-                          className="hover:text-blue-500 cursor-pointer text-sm transition"
+                          className="hover:text-blue-500 cursor-pointer text-sm transition break-words"
                         >
                           {subItem}
                         </li>

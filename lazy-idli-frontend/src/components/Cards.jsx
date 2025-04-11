@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Gamepad2, Users, Baby, Monitor } from "lucide-react";
+import { DataContext } from "../Store/DataContext";
 
 function Cards() {
+
+
+  const {data} = useContext(DataContext);
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 gap-6 px-6 -mt-40 max-w-full mx-auto relative z-10">
       <div className="bg-[#e8ffd4] p-6 rounded-lg shadow-lg transform transition-transform duration-300 hover:-translate-y-6">
@@ -11,7 +16,7 @@ function Cards() {
           Strategy and action sports for the squad
         </p>
         <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-          View All 5 Activities
+          View All {data.PRIME} Activities
         </button>
       </div>
 
@@ -22,7 +27,7 @@ function Cards() {
           Short format, big thrills served à la carte
         </p>
         <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-          View All 8 Activities
+          View All {data.STUDIO} Activities
         </button>
       </div>
 
@@ -33,7 +38,7 @@ function Cards() {
           Classic favourites for the recreational sport
         </p>
         <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-          View All 6 Activities
+          View All {data.UNION} Activities
         </button>
       </div>
 
@@ -44,7 +49,7 @@ function Cards() {
           Toddler-sized fun for little champs
         </p>
         <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-          View All 10 Activities
+          View All {data.JUNIOR} Activities
         </button>
       </div>
       
