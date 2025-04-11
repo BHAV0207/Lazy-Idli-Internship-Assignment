@@ -21,6 +21,9 @@ function Cards() {
         <p className="text-sm text-gray-700">
           Short format, big thrills served à la carte
         </p>
+        <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+          View All 8 Activities
+        </button>
       </div>
 
       <div className="bg-[#d4f5ff] p-6 rounded-lg shadow-lg transform transition-transform duration-300 hover:-translate-y-6">
@@ -29,6 +32,9 @@ function Cards() {
         <p className="text-sm text-gray-700">
           Classic favourites for the recreational sport
         </p>
+        <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+          View All 6 Activities
+        </button>
       </div>
 
       <div className="bg-[#d4ffec] p-6 rounded-lg shadow-lg transform transition-transform duration-300 hover:-translate-y-6">
@@ -37,7 +43,11 @@ function Cards() {
         <p className="text-sm text-gray-700">
           Toddler-sized fun for little champs
         </p>
+        <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+          View All 10 Activities
+        </button>
       </div>
+      
     </div>
   );
 }

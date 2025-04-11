@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 
 function Header() {
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -63,16 +63,7 @@ function Header() {
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-6">
           {Object.keys(navItems).map((item) => (
-            <div
-              key={item}
-              className="relative group"
-              onMouseEnter={() => {
-                if (!isClickDropdownOpen) setActiveDropdown(item);
-              }}
-              onMouseLeave={() => {
-                if (!isClickDropdownOpen) setActiveDropdown(null);
-              }}
-            >
+           <div key={item} className="relative group">
               <button
                 onClick={() => {
                   if (activeDropdown === item && isClickDropdownOpen) {
@@ -85,7 +76,14 @@ function Header() {
                 }}
                 className="relative py-2 px-1 text-white hover:text-yellow-400 transition-all duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 hover:after:w-full after:h-[2px] after:bg-yellow-400 after:transition-all after:duration-300"
               >
-                {item}
+                <span className="flex items-center gap-1">
+                  {item}
+                  {activeDropdown === item && isClickDropdownOpen ? (
+                    <ChevronUp className="w-4 h-4" />
+                  ) : (
+                    <ChevronDown className="w-4 h-4" />
+                  )}
+                </span>
               </button>
 
               {activeDropdown === item && (
@@ -161,7 +159,7 @@ function Header() {
           {Object.keys(navItems).map((item) => (
             <div key={item}>
               <details className="group">
-                <summary className="cursor-pointer text-lg font-semibold">
+                <summary className="cursor-pointer text-lg font-semibold flex justify-between items-center">
                   {item}
                 </summary>
                 <div className="pl-4 mt-2">
