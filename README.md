@@ -97,24 +97,6 @@ Tailwind’s grid and flex utilities are used to ensure that the layout adapts t
 
 ---
 
-## ✨ Contribution Guide
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork this repository.
-2. Create your feature branch (`git checkout -b feature-name`).
-3. Commit your changes (`git commit -am 'Add new feature'`).
-4. Push to the branch (`git push origin feature-name`).
-5. Open a Pull Request.
-
----
-
-## 🧾 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
 ## 🙌 Acknowledgments
 
 - [Lucide Icons](https://lucide.dev/)
